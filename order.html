@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Alpha Force - HazzyCure</title>
+  <style>
+    body { background-color:#000; color:#fff; font-family:'Segoe UI',sans-serif; padding:40px 20px; margin:0; }
+    form { max-width:600px; margin:auto; background:#111; padding:30px; border:2px solid #FFD700; border-radius:15px; box-shadow:0 0 20px rgba(255,215,0,0.3); }
+    h2 { color:#fff; margin-bottom:10px; font-size:24px; }
+    h2 span { color:#ffc107; }
+    p { margin-bottom:20px; line-height:1.5; }
+    input, textarea, select, button { width:100%; padding:12px; margin-bottom:15px; border-radius:6px; border:none; font-size:16px; box-sizing:border-box; }
+    input, textarea, select { background:#222; color:#fff; border:1px solid #555; }
+    button { background-color:#FFD700; color:#000; font-weight:bold; cursor:pointer; transition:0.3s; }
+    button:hover { background-color:#e6be00; }
+    .summary { max-width:600px; margin:30px auto; background:#111; padding:20px; border:1px solid #444; border-radius:10px; }
+    .summary h3 { color:#ffc107; }
+    footer { text-align:center; margin-top:40px; color:#888; font-size:14px; }
+    ul { padding-left:20px; } li { margin-bottom:8px; }
+    #msg { display:none; text-align:center; font-size:15px; margin-bottom:10px; padding:10px; border-radius:6px; }
+    #msg.err { color:#ff6b6b; background:#1a0000; }
+  </style>
+  <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2020600545550215');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2020600545550215&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<form id="orderForm">
+  <h2>Order Your <span>Alpha Force</span> Now - Secret & Private Delivery Across Pakistan</h2>
+  <p>Apni performance ko behtar banane ke liye abhi order karein. Hum aapke ghar tak private delivery provide karte hain.</p>
+
+  <div id="msg"></div>
+
+  <input type="text" id="name"    placeholder="Full Name"        required />
+  <input type="tel"  id="phone"   placeholder="Phone Number"     required />
+  <input type="text" id="city"    placeholder="City"             required />
+  <input type="text" id="address" placeholder="Complete Address" required />
+  <select id="pack" required>
+    <option value="">Select Pack</option>
+    <option value="Pack of 5">Pack of 5</option>
+    <option value="Pack of 10">Pack of 10</option>
+  </select>
+  <textarea id="notes" placeholder="Additional Notes (Optional)"></textarea>
+
+  <button id="purchaseBtn" type="submit">Place Order</button>
+</form>
+
+<div class="summary">
+  <h3>Why Choose Hazzy Cure?</h3>
+  <ul>
+    <li>100% Natural Herbal Formula</li>
+    <li>No Side Effects</li>
+    <li>Private Delivery Across Pakistan</li>
+    <li>Cash on Delivery Available</li>
+  </ul>
+</div>
+
+<footer>
+  <p>Contact Us: +923314340855 | hazzycurepk@gmail.com</p>
+  <p>&copy; 2023 Alpha Force. All Rights Reserved.</p>
+</footer>
+
+<script>
+  // ✅ Step 3 mein milne wali URL yahan paste karo
+  var SHEET_URL = "https://script.google.com/macros/s/AKfycby8I55zERTRsH5K7S8FduS5kZL_N2-OYPvC6rFnemSIO7DYN6Aor38M6RjELs1oHM3e/exec";
+
+  var form = document.getElementById("orderForm");
+  var btn  = document.getElementById("purchaseBtn");
+  var msg  = document.getElementById("msg");
+
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    var name    = document.getElementById("name").value.trim();
+    var phone   = document.getElementById("phone").value.trim();
+    var city    = document.getElementById("city").value.trim();
+    var address = document.getElementById("address").value.trim();
+    var pack    = document.getElementById("pack").value;
+    var notes   = document.getElementById("notes").value.trim();
+
+    if (!name || !phone || !city || !address || !pack) {
+      msg.className = "err";
+      msg.style.display = "block";
+      msg.textContent = "⚠️ Please fill all required fields.";
+      return;
+    }
+
+    btn.disabled  = true;
+    btn.innerText = "Processing...";
+    msg.style.display = "none";
+
+    try {
+      var body = new URLSearchParams({ name, phone, city, address, pack, notes });
+      await fetch(SHEET_URL, { method: "POST", body });
+    } catch(err) {}
+
+    window.location.href = "https://www.hazzycure.com/thanks";
+  });
+
+  window.addEventListener("pageshow", function() {
+    btn.disabled  = false;
+    btn.innerText = "Place Order";
+  });
+</script>
+
+</body>
+</html>

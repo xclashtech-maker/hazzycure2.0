@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Stay On Oil - HazzyCure</title>
+   <style>
+    body { background-color:#000; color:#fff; font-family:'Segoe UI',sans-serif; padding:40px 20px; margin:0; }
+    form { max-width:600px; margin:auto; background:#111; padding:30px; border:2px solid #FFD700; border-radius:15px; box-shadow:0 0 20px rgba(255,215,0,0.3); }
+    h2 { color:#fff; margin-bottom:10px; font-size:24px; }
+    h2 span { color:#ffc107; }
+    p { margin-bottom:20px; line-height:1.5; }
+    input, textarea, select, button { width:100%; padding:12px; margin-bottom:15px; border-radius:6px; border:none; font-size:16px; box-sizing:border-box; }
+    input, textarea, select { background:#222; color:#fff; border:1px solid #555; }
+    button { background-color:#FFD700; color:#000; font-weight:bold; cursor:pointer; transition:0.3s; }
+    button:hover { background-color:#e6be00; }
+    .summary { max-width:600px; margin:30px auto; background:#111; padding:20px; border:1px solid #444; border-radius:10px; }
+    .summary h3 { color:#ffc107; }
+    footer { text-align:center; margin-top:40px; color:#888; font-size:14px; }
+    ul { padding-left:20px; } li { margin-bottom:8px; }
+    #msg { display:none; text-align:center; font-size:15px; margin-bottom:10px; padding:10px; border-radius:6px; color:#ff6b6b; background:#1a0000; }
+  </style>
+</head>
+<body>
+
+<form id="orderForm">
+  <h2>Order Your <span>Stay On Oil</span> Now - Delivery Across Pakistan</h2>
+  <p>Apni performance ko behtar banane ke liye abhi order karein. Hum aapke ghar tak delivery provide karte hain.</p>
+
+  <div id="msg"></div>
+
+  <input type="text" id="name"    placeholder="Full Name"        required />
+  <input type="tel"  id="phone"   placeholder="Phone Number"     required />
+  <input type="text" id="city"    placeholder="City"             required />
+  <input type="text" id="address" placeholder="Complete Address" required />
+  <textarea          id="notes"   placeholder="Additional Notes (Optional)"></textarea>
+
+  <button id="purchaseBtn" type="submit">Place Order</button>
+</form>
+
+<div class="summary">
+  <h3>Why Choose Hazzy Cure?</h3>
+  <ul>
+    <li>100% Natural Herbal Formula</li>
+    <li>No Side Effects</li>
+    <li>Delivery Across Pakistan</li>
+    <li>Cash on Delivery Available</li>
+  </ul>
+</div>
+
+<footer>
+  <p>Contact Us: +923314340855 | hazzycurepk@gmail.com</p>
+  <p>&copy; 2023 HazzyCure. All Rights Reserved.</p>
+</footer>
+
+<script>
+  var SHEET_URL = "https://script.google.com/macros/s/AKfycby8I55zERTRsH5K7S8FduS5kZL_N2-OYPvC6rFnemSIO7DYN6Aor38M6RjELs1oHM3e/exec"; // ← Apps Script URL yahan
+
+  var form = document.getElementById("orderForm");
+  var btn  = document.getElementById("purchaseBtn");
+  var msg  = document.getElementById("msg");
+
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+    var name    = document.getElementById("name").value.trim();
+    var phone   = document.getElementById("phone").value.trim();
+    var city    = document.getElementById("city").value.trim();
+    var address = document.getElementById("address").value.trim();
+    var notes   = document.getElementById("notes").value.trim();
+
+    if (!name || !phone || !city || !address) {
+      msg.style.display = "block";
+      msg.textContent   = "⚠️ Please fill all required fields.";
+      return;
+    }
+
+    btn.disabled  = true;
+    btn.innerText = "Processing...";
+    msg.style.display = "none";
+
+    try {
+      await fetch(SHEET_URL, {
+        method: "POST",
+        body: new URLSearchParams({ name, phone, city, address, notes, product: "Stay On Oil", pack: "—" })
+      });
+    } catch(err) {}
+
+    window.location.href = "https://hazzycure.com/thanks-oil";
+  });
+
+  window.addEventListener("pageshow", function() {
+    btn.disabled  = false;
+    btn.innerText = "Place Order";
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,763 @@
+/********** Template CSS **********/
+/*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+img.animated.pulse {
+    animation-duration: 5s;
+}
+
+/*** Button ***/
+.btn {
+    font-weight: 500;
+    transition: .5s;
+}
+
+.btn.btn-primary {
+    color: var(--bs-white);
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 50px;
+}
+
+
+/*** Navbar ***/
+.sticky-top {
+    top: -150px;
+    transition: .5s;
+
+}
+
+.navbar {
+    padding: 11px 0 !important;
+    height: 85px;
+    background: black !important;
+}
+
+.navbar .navbar-nav .nav-link {
+    margin-right: 45px;
+    padding: 0;
+    color: var(--bs-light);
+    font-weight: 500;
+    transition: .5s;
+    outline: none;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: gold;
+}
+
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+    
+}
+
+@media (max-width: 991.98px) {
+    .navbar .navbar-nav {
+        padding: 0 15px;
+        background:black;
+    }
+
+    .navbar .navbar-nav .nav-link  {
+        margin-right: 0;
+        padding: 10px 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        border: none;
+        margin-top: 0;
+        top: 150%;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        top: 100%;
+        visibility: visible;
+        transition: .5s;
+        opacity: 1;
+    }
+}
+
+
+/*** Hero Header ***/
+.hero-header {
+    position: relative;
+    margin-top: -85px;
+    padding-top: 12rem;
+    padding-bottom: 6rem;
+    background: url(../img/bg.png) center center no-repeat;
+    background-size: cover;
+}
+
+.hero-header::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: black;
+    clip-path: polygon(66% 0, 100% 0, 100% 100%, 33% 100%) ;
+}
+
+.hero-header .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-header .breadcrumb-item+.breadcrumb-item::before {
+    color: var(--bs-light);
+}
+
+
+/*** Feature ***/
+.feature-item::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, .1);
+    clip-path: polygon(66% 0, 100% 0, 100% 100%, 33% 100%);
+}
+
+.feature-item .border {
+    position: relative;
+    border-color: rgba(255, 255, 255, .2) !important;
+    z-index: 1;
+}
+
+
+/*** Deal ***/
+.deal {
+    position: relative;
+    background: url(../img/bg.png) center center no-repeat;
+    background-size: cover;
+}
+
+.deal::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, .1);
+    clip-path: polygon(66% 0, 100% 0, 100% 100%, 33% 100%);
+}
+
+.deal .bg-white {
+    position: relative;
+    z-index: 1;
+}
+
+.deal .cdt span {
+    display: block;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 200;
+    text-transform: capitalize;
+}
+
+
+/*** How To Use ***/
+.how-to-use {
+    position: relative;
+    background: url(../img/bg.png) center center no-repeat;
+    background-size: cover;
+}
+
+.how-to-use::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, .1);
+    clip-path: polygon(66% 0, 100% 0, 100% 100%, 33% 100%);
+}
+
+.how-to-use .container {
+    position: relative;
+    z-index: 1;
+}
+
+.how-to-use .border {
+    border-color: rgba(255, 255, 255, .2) !important;
+}
+
+
+/*** Product ***/
+.product-item {
+    transition: .1s;
+    border: 1px gold;
+}
+
+
+/*** Testimonial ***/
+.testimonial {
+    position: relative;
+    background: url(../img/bg.png) center center no-repeat;
+    background-size: cover;
+}
+
+.testimonial::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, .1);
+    clip-path: polygon(66% 0, 100% 0, 100% 100%, 33% 100%);
+}
+
+.testimonial .testimonial-carousel {
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-carousel .owl-item img {
+    width: 120px;
+    height: 120px;
+    border-color: rgba(255, 255, 255, .2) !important;
+    margin: 0 auto 20px auto;
+    border-radius: 100px;
+}
+
+.testimonial-carousel .owl-dots {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.testimonial-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 3px solid rgba(255, 255, 255, .2);
+    border-radius: 30px;
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-dot.active {
+    background: var(--bs-dark);
+}
+
+
+/*** Blog ***/
+.blog-item {
+    transition: .1s;
+}
+
+.blog-item:hover {
+    border-width: 0 !important;
+    box-shadow: 0 0 35px rgba(144, 188, 121, .25);
+}
+
+.blog-item:hover a.btn {
+    color: var(--bs-white);
+    background: var(--bs-primary);
+}
+
+
+/*** Contact ***/
+.contact-info-item::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, .1);
+    clip-path: polygon(66% 0, 100% 0, 100% 100%, 33% 100%);
+}
+
+.contact-info-item .border {
+    position: relative;
+    border-color: rgba(255, 255, 255, .2) !important;
+    z-index: 1;
+}
+
+
+/*** Newsletter ***/
+.newsletter {
+    position: relative;
+    background: url(../img/bg.png) center center no-repeat;
+    background-size: cover;
+}
+
+.newsletter::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, .1);
+    clip-path: polygon(66% 0, 100% 0, 100% 100%, 33% 100%);
+}
+
+.newsletter .container {
+    position: relative;
+    z-index: 1;
+}
+
+.newsletter .form-control {
+    background: rgba(255, 255, 255, .3);
+}
+
+
+/*** Footer ***/
+.footer .btn.btn-link {
+    display: block;
+    margin-bottom: 10px;
+    padding: 0;
+    text-align: left;
+    color: var(--bs-body);
+    font-weight: normal;
+    transition: .3s;
+}
+
+.footer .btn.btn-link:hover {
+    color: var(--bs-primary);
+}
+
+.footer .btn.btn-link::before {
+    position: relative;
+    content: "\f105";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 10px;
+}
+
+.footer .btn.btn-link:hover {
+    letter-spacing: 1px;
+    box-shadow: none;
+}
+
+.footer .copyright {
+    padding: 25px 0;
+    border-top: 3px solid var(--bs-light);
+}
+
+.footer .copyright a {
+    color: var(--bs-body);
+}
+
+.footer .copyright a:hover {
+    color: var(--bs-primary);
+}
+
+.footer .footer-menu a {
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 3px solid var(--bs-light);
+}
+
+.footer .footer-menu a:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+}
+.bg-gold {
+  background-color: black !important;
+}
+.gold {
+ 
+ color: gold;
+ font-size : 35px;
+}
+.text-gold
+{
+
+color: gold;
+}
+.bg-clr
+{
+    background: black;
+}
+.navbar-toggler
+{
+    background: gold;
+
+}
+.bg-custom
+{
+    background: gold;
+}
+.top-strip {
+  background-color: gold;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px 0;
+}
+marquee {
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* Image stack styling */
+.product-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Main product image responsive */
+.product-stack .main-product {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Capsule image responsive */
+.product-stack .capsule-img {
+  max-width:auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Plus sign style */
+.plus-sign {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 1;
+  color: #D4AF37;
+}
+/* Azadi Badge */
+.azadi-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: green;
+  color: white;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  z-index: 10;
+}
+.discount-badge-inline {
+  display: inline-block;
+  background: red;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.product-price {
+  margin: 8px 0;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #bbb;
+  font-size: 15px;
+  margin-right: 8px;
+}
+
+.new-price {
+  color: #ffcc00; /* gold */
+  font-weight: bold;
+  font-size: 20px;
+}
+.catalog-item {
+  border: 2px solid gold;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 10px;
+  background: #111;
+  text-align: center;
+  box-shadow: 0 0 18px rgba(255, 215, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  align-items: center;
+}
+
+.catalog-item img {
+  max-width: 230px;
+  border-radius: 10px;
+  margin: 0 auto 15px auto; /* 👈 auto margin se center ho jayegi */
+  display: block; /* 👈 block display zaroori hai center ke liye */
+}
+.catalog-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+}
+
+.product-title {
+  color: gold;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  margin-right: 8px;
+}
+
+.new-price {
+  color: gold;
+  font-weight: bold;
+}
+
+.btn-gold {
+  background: gold;
+  color: #111;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn-gold:hover {
+  background: #ffd633;
+}
+.dm-round-button {
+  position: fixed;
+  bottom: 40px;
+  left: 20px;
+  width: 45px;
+  height: 45px;
+  background-color: green;
+  color: white;
+  font-size: 20px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 45px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: background 0.3s ease;
+}
+
+.dm-round-button:hover {
+  background-color: greenyellow;
+}
+.certificate-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.certificate-frame {
+  padding: 12px;
+  border: 6px solid #d4af37;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #fff6cc, #ffd700);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+}
+
+.certificate-frame img {
+  max-width: 300px;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+}
+.round-golden {
+  border-radius: 50%;
+  border: 6px solid gold;
+  padding: 5px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
+.product-item {
+    position: relative; /* ensure the badge is positioned relative to this container */
+}
+
+.badge-popular {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff9900; /* orange for visibility */
+    color: #fff;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    z-index: 10;
+}
+ /* PCSIR Badge */
+.pcsir-badge-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+@media (min-width: 992px) {
+    .pcsir-badge-wrap {
+        justify-content: flex-start;
+    }
+}
+
+.pcsir-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #1111;
+    border: 2px solid #c8a951;
+    border-radius: 50px;
+    padding: 10px 22px 10px 12px;
+    box-shadow: 0 0 16px rgba(200, 169, 81, 0.35);
+}
+
+.pcsir-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(200, 169, 81, 0.15);
+    border: 1.5px solid rgba(200, 169, 81, 0.4);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+}
+
+.pcsir-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.pcsir-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: #c8a951;
+}
+
+.pcsir-sub {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    color: #e0e0e0;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+        .doctor-profile-border {
+            border: 4px double #c8a951;
+            padding: 10px;
+            background: #1a1a2e;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
+        }
+        .doctor-badge {
+            background: #c8a951;
+            color: #1a1a2e;
+            font-weight: 600;
+            padding: 5px 15px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+        .clinic-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(200, 169, 81, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            height: 100%;
+            transition: 0.3s;
+        }
+        .clinic-card:hover {
+            border-color: #c8a951;
+            transform: translateY(-5px);
+        }
+
+       /* 📱 MOBILE VIEW ABSOLUTE FIX */
+        @media (max-width: 991.98px) {
+            /* Pure hero block ko top navbar se door dhakelne k liye */
+            .hero-header {
+                padding-top: 90px !important; 
+                padding-bottom: 30px !important;
+            }
+            
+            /* Badge ko block level bana kar top space dena */
+            .doctor-badge {
+                margin-top: 35px !important;
+                margin-bottom: 20px !important;
+                font-size: 0.8rem;
+                display: inline-block !important;
+            }
+
+            /* Takay slide animation screen se bahr navbar k piche na jaye */
+            .animated {
+                animation-delay: 0.1s !important;
+            }
+        }
